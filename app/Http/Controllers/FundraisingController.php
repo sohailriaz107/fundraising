@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class FundraisingController extends Controller
         return view('fund.index',compact('funds'));
     }
       public function about(){
-        return view('fund.about');
+        $about=About::all();
+        return view('fund.about',compact('about'));
     }
       public function blog(){
         return view('fund.blog');

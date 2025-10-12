@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\FundraisingController;
@@ -45,15 +46,21 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 });
 
-Route::middleware(['admin.auth'])->group(function(){
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-Route::get('/nav', [AdminController::class, 'navigation'])->name('nav');
-Route::post('/nav/store', [AdminController::class, 'NavStore'])->name('nav.store');
-Route::get('/nav/edit/{id}', [AdminController::class, 'NavEdit'])->name('nav.edit');
-Route::get('/nav/delete/{id}', [AdminController::class, 'NavDelete'])->name('nav.delete');
-Route::put('/nav/update/{id}', [AdminController::class, 'NavUpdate'])->name('nav.update');
+Route::middleware(['admin.auth'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/nav', [AdminController::class, 'navigation'])->name('nav');
+    Route::post('/nav/store', [AdminController::class, 'NavStore'])->name('nav.store');
+    Route::get('/nav/edit/{id}', [AdminController::class, 'NavEdit'])->name('nav.edit');
+    Route::get('/nav/delete/{id}', [AdminController::class, 'NavDelete'])->name('nav.delete');
+    Route::put('/nav/update/{id}', [AdminController::class, 'NavUpdate'])->name('nav.update');
 
-// Compagin
-Route::get('/campaign', [CampaignController::class, 'index'])->name('camp');
-Route::post('/store', [CampaignController::class, 'store'])->name('campaign.store');
+    // Compagin
+    Route::get('/campaign', [CampaignController::class, 'index'])->name('camp');
+    Route::post('/store', [CampaignController::class, 'store'])->name('campaign.store');
+    Route::put('/campaign/update/{id}', [CampaignController::class, 'Update'])->name('campaign.update');
+    Route::put('/campaign/delete/{id}', [CampaignController::class, 'Destroy'])->name('campaign.destroy');
+
+
+    // about
+    Route::get('admin/about',[AboutController::class,'about'])->name('admin.about');
 });

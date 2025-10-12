@@ -42,7 +42,7 @@
                     </thead>
                     <tbody>
                         @foreach ($navs as $nav)
-                        
+
                         <tr>
                             <td class="text-center">{{$loop->iteration}}</td>
                             <td class="text-center">{{$nav->nav}}</td>
@@ -57,36 +57,38 @@
                                 <a href="{{url('/nav/delete',$nav->id)}}"> <button class="btn btn-sm btn-danger">Delete</button></a>
                             </td>
                         </tr>
-                          <div class="modal fade" id="editModal{{ $nav->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $nav->id }}" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel{{ $nav->id }}">Edit Navigation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{{ route('nav.update', $nav->id) }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="nav{{ $nav->id }}" class="form-label">Navigation Name</label>
-                            <input type="text" name="nav" id="nav{{ $nav->id }}" class="form-control" value="{{ $nav->nav }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="route{{ $nav->id }}" class="form-label">Navigation Route</label>
-                            <input type="text" name="route" id="route{{ $nav->id }}" class="form-control" value="{{ $nav->route }}">
-                        </div>
-                    </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>
+                        <!-- edit nav -->
+                        <div class="modal fade" id="editModal{{ $nav->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $nav->id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editModalLabel{{ $nav->id }}">Edit Navigation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="{{ route('nav.update', $nav->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="nav{{ $nav->id }}" class="form-label">Navigation Name</label>
+                                                <input type="text" name="nav" id="nav{{ $nav->id }}" class="form-control" value="{{ $nav->nav }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="route{{ $nav->id }}" class="form-label">Navigation Route</label>
+                                                <input type="text" name="route" id="route{{ $nav->id }}" class="form-control" value="{{ $nav->route }}">
+                                            </div>
+                                        </div>
 
-            </div>
-        </div>
-    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
 
                     </tbody>
@@ -132,7 +134,7 @@
 
     <!-- Edit Modal -->
     <!-- Edit Modal -->
-  
+
 
 </main>
 

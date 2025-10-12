@@ -6,9 +6,12 @@
   <div class="owl-carousel loop-block-31 ">
     <div class="block-30 block-30-sm item" style="background-image: url('{{ asset('assets/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="container">
+        @foreach ($about as $abt)
+
+
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center">
-            <h2 class="heading">About The Organization</h2>
+            <h2 class="heading">{{$abt->title}}</h2>
           </div>
         </div>
       </div>
@@ -23,15 +26,14 @@
       <div class="col-md-12 mb-5">
         <h1>Our History</h1>
       </div>
-      <div class="col-md-6">
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus officiis facere nisi et, ut adipisci a quis quisquam vitae doloremque tempora repellat quae accusantium atque eum voluptatibus aperiam cumque.</p>
-        <p>Quia ratione, eum harum ab similique mollitia, nisi itaque vel voluptas ipsam dolore perferendis. Deleniti voluptatum error possimus ipsum, sed, obcaecati. Sit unde quia eum repudiandae molestiae reprehenderit harum nesciunt.</p>
+      <div class="col-md-12">
+
+        <p class="lead">{{$abt->history}}</p>
+
 
       </div>
-      <div class="col-md-6">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus officiis facere nisi et, ut adipisci a quis quisquam vitae doloremque tempora repellat quae accusantium atque eum voluptatibus aperiam cumque.</p>
-        <p>Quia ratione, eum harum ab similique mollitia, nisi itaque vel voluptas ipsam dolore perferendis. Deleniti voluptatum error possimus ipsum, sed, obcaecati. Sit unde quia eum repudiandae molestiae reprehenderit harum nesciunt.</p>
-      </div>
+      @endforeach
+
     </div>
 
     <div class="row mt-5">

@@ -51,6 +51,26 @@
                     </nav>
                 </div>
 
+                <!-- about section -->
+                 <a class="nav-link collapsed {{ request()->routeIs('admin.about*') ? 'active' : '' }}"
+                   href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapseAbout" aria-expanded="{{ request()->routeIs('campaign*') ? 'true' : 'false' }}"
+                   aria-controls="collapseAbout">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    About Page
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse {{ request()->routeIs('campaign*') ? 'show' : '' }}"
+                     id="collapseAbout" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link {{ request()->routeIs('admin.about') ? 'active' : '' }}"
+                           href="{{ route('admin.about') }}">
+                            about
+                        </a>
+                        
+                    </nav>
+                </div>
+
             </div>
         </div>
 
