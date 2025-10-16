@@ -46,9 +46,6 @@
                             <td class="text-center">{{$loop->iteration}}</td>
                             <td class="text-center">{{$abt->title}}</td>
                             <td class="text-center">{{$abt->history}}</td>
-
-
-
                             <td class="text-center">
                                 <div class="dropdown">
                                     <img src="{{ asset('assets/images/user-pen.svg') }}"
@@ -65,12 +62,12 @@
                                         <li>
                                             <button type="button" class="dropdown-item text-primary"
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#editModal">
+                                                data-bs-target="#editModal{{ $abt->id }}">
                                                 Edit
                                             </button>
                                         </li>
                                         <li>
-                                            <form action="" method="POST" onsubmit="return alert('Are you sure?');">
+                                            <form action="{{route('admin.delete',$abt->id)}}" method="POST" onsubmit="return alert('Are you sure?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="dropdown-item text-danger">Delete</button>
@@ -82,7 +79,7 @@
 
 
                         </tr>
-                        <!-- edit campgin  -->
+                        <!-- edit About  -->
                         <div class="modal fade" id="editModal{{ $abt->id }}" tabindex="-1" aria-labelledby="addNavModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content shadow-lg rounded-4">
@@ -92,15 +89,15 @@
                                     </div>
 
                                     <div class="modal-body p-4">
-                                        <form action="#" method="POST" enctype="multipart/form-data">
+                                        <form action="{{route('admin.update',$abt->id)}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
                                             <div class="mb-3">
-                                                <label for="name" class="form-label">Title Name</label>
+                                                <label for="title" class="form-label">Title Name</label>
                                                 <input type="text" name="name" class="form-control" id="name" placeholder="Enter Campaign name" value="{{$abt->title}}" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="description" class="form-label">Campaign Description</label>
+                                                <label for="history" class="form-label">Campaign Description</label>
                                                 <textarea name="description" id="description" class="form-control" rows="3" placeholder="Enter description">{{$abt->history}}</textarea>
                                             </div>
                                             <div class="modal-footer">
@@ -139,16 +136,15 @@
                 </div>
 
                 <div class="modal-body p-4">
-                    <form action="#" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                       
                         <div class="mb-3">
                             <label for="name" class="form-label">Title Name</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter Campaign Title"  required>
+                            <input type="text" name="title" class="form-control" id="name" placeholder="Enter Campaign Title" required>
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Campaign History</label>
-                            <textarea name="description" id="description" class="form-control" rows="3" placeholder="Enter description"></textarea>
+                            <textarea name="history" id="description" class="form-control" rows="3" placeholder="Enter description" required></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

@@ -63,4 +63,7 @@ Route::middleware(['admin.auth'])->group(function () {
 
     // about
     Route::get('admin/about',[AboutController::class,'about'])->name('admin.about');
+    Route::post('admin/about/store',[AboutController::class,'store'])->name('admin.store');
+    Route::put('admin/update/{id}',[AboutController::class,'Update'])->name('admin.update');
+     Route::delete('admin/delete/{id}',[AboutController::class,'destroy'])->name('admin.delete');
 });
