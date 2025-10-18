@@ -101,7 +101,7 @@
 
 
         <div class="card fundraise-item">
-          <a href="#"><img class="card-img-top" src="{{ asset($fund->image) }}" alt="Image placeholder"  ></a>
+          <a href="{{route('docomp',$fund->id)}}"><img class="card-img-top" src="{{ asset($fund->image) }}" alt="Image placeholder"  ></a>
           <div class="card-body">
             <h3 class="card-title"><a href="#">{{$fund->campaign_name}}</a></h3>
             <p class="card-text">{{$fund->description}}</p>

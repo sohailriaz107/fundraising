@@ -9,4 +9,5 @@ class About extends Model
     //
     protected $table="abouts";
     protected $fillable=['title','history'];
+     
 }

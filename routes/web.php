@@ -27,11 +27,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [FundraisingController::class, 'home'])->name('home');
     Route::get('/about', [FundraisingController::class, 'about'])->name('about');
     Route::get('/blog', [FundraisingController::class, 'blog'])->name('blog');
-    Route::get('/blog-single', [FundraisingController::class, 'blog_single'])->name('blog-single');
+    Route::get('/docampaigns/{id}', [FundraisingController::class, 'DoCompaigns'])->name('docomp');
     Route::get('/contact', [FundraisingController::class, 'contact'])->name('contact');
     Route::get('/gallary', [FundraisingController::class, 'gallary'])->name('gallary');
     Route::get('/how/works', [FundraisingController::class, 'How_Works'])->name('how-works');
     Route::get('/donate', [FundraisingController::class, 'donate'])->name('donate');
+    Route::post('/donations', [FundraisingController::class, 'Donation'])->name('donations');
 });
 
 
@@ -62,8 +63,8 @@ Route::middleware(['admin.auth'])->group(function () {
 
 
     // about
-    Route::get('admin/about',[AboutController::class,'about'])->name('admin.about');
-    Route::post('admin/about/store',[AboutController::class,'store'])->name('admin.store');
-    Route::put('admin/update/{id}',[AboutController::class,'Update'])->name('admin.update');
-     Route::delete('admin/delete/{id}',[AboutController::class,'destroy'])->name('admin.delete');
+    Route::get('admin/about', [AboutController::class, 'about'])->name('admin.about');
+    Route::post('admin/about/store', [AboutController::class, 'store'])->name('admin.store');
+    Route::put('admin/update/{id}', [AboutController::class, 'Update'])->name('admin.update');
+    Route::delete('admin/delete/{id}', [AboutController::class, 'destroy'])->name('admin.delete');
 });
