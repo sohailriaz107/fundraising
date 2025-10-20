@@ -25,7 +25,7 @@
     <div class="row g-5">
       <!-- Campaign Details -->
       <div class="col-lg-8">
-      
+
         <div class="card shadow-sm border-0 rounded-4">
           <img src="{{ asset($funds->image) }}"
             class="card-img-top rounded-top-4"
@@ -34,12 +34,18 @@
           <div class="card-body">
             <h2 class="fw-bold text-primary mb-3">{{$funds->campaign_name}}</h2>
             <h5 class="text-muted mb-3">{{$funds->description}}</h5>
-            <p class="text-secondary" style="line-height: 1.8;">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem saepe quas amet blanditiis quam, ipsam nisi, voluptas in ad ipsa similique eius omnis, delectus eligendi natus tempora doloremque vel dolor.
+
+            <p>Goal: <strong>{{ number_format($funds->goal_amount, 2) }}</strong></p>
+            <p>Raised: <strong>{{ number_format($totalDonated, 2) }}</strong></p>
+
+            @if($funds->goal_amount > 0)
+            <p>Progress:
+              {{ number_format(($totalDonated / $funds->goal_amount) * 100, 2) }}%
             </p>
+            @endif
           </div>
         </div>
-      
+
       </div>
 
       <!-- Donation Form -->
@@ -56,12 +62,13 @@
           <form action="{{route('donations')}}" method="POST" id="payment-form">
             @csrf
             <div class="mb-3">
+              <input type="hidden" name="campaign_id" value="{{ $funds->id }}">
               <label class="form-label">Amount (pkr)</label>
               <input type="number" name="amount" class="form-control rounded-3" min="1" required>
             </div>
             <button type="submit" class="btn btn-primary w-100 py-2 rounded-3 mt-3">
               <i class="bi bi-heart-fill me-1"></i> Donate Now
-            </button>            
+            </button>
           </form>
         </div>
       </div>

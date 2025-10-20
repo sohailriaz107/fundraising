@@ -11,7 +11,7 @@ class CampaignController extends Controller
     //
     public function index()
     {
-        $campaigns = Campaign::all();
+        $campaigns = Campaign::with('donations')->get();
         return view('admin.compaign', compact('campaigns'));
     }
     public function store(Request $request)

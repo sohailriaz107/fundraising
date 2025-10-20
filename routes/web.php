@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/how/works', [FundraisingController::class, 'How_Works'])->name('how-works');
     Route::get('/donate', [FundraisingController::class, 'donate'])->name('donate');
     Route::post('/donations', [FundraisingController::class, 'Donation'])->name('donations');
+    
 });
 
 
@@ -67,4 +68,7 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::post('admin/about/store', [AboutController::class, 'store'])->name('admin.store');
     Route::put('admin/update/{id}', [AboutController::class, 'Update'])->name('admin.update');
     Route::delete('admin/delete/{id}', [AboutController::class, 'destroy'])->name('admin.delete');
+
+    // DOners
+        Route::get('admin/doners', [AboutController::class, 'Doners'])->name('admin.doners');
 });

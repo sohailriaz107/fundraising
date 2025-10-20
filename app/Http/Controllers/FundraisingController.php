@@ -13,7 +13,8 @@ class FundraisingController extends Controller
   //
   public function home()
   {
-    $funds = Campaign::all();
+    $funds = Campaign::with('donations')->get();
+    
     return view('fund.index', compact('funds'));
   }
   public function about()
@@ -27,8 +28,10 @@ class FundraisingController extends Controller
   }
   public function DoCompaigns($id)
   {
-    $funds = Campaign::findOrFail($id);
-    return view('fund.campaigns', compact('funds'));
+    $funds = Campaign::with('donations')->findOrFail($id);
+
+      $totalDonated = $funds->donations->sum('amount');
+    return view('fund.campaigns', compact('funds','totalDonated'));
   }
   public function contact()
   {
@@ -54,10 +57,12 @@ class FundraisingController extends Controller
   {
     $request->validate([
       'amount' => 'required|numeric|max:999999.99',
+      'campaign_id' => 'nullable|exists:campaigns,id', 
     ]);
     $fund = new Donations();
     $fund->amount = $request->amount;
     $fund->user_id = Auth::id(); // if user is logged in
+     $fund->campaign_id = $request->campaign_id; // ✅ save campaign ID
     $fund->donor_name = auth()->user()->name ?? 'Anonymous';
     $fund->save();
     return redirect()->back()->with('success', 'Amount sent successfully!');

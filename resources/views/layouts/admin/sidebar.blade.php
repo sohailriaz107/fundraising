@@ -71,6 +71,27 @@
                     </nav>
                 </div>
 
+                <!-- doners list -->
+                   <a class="nav-link collapsed {{ request()->routeIs('admin.doners*') ? 'active' : '' }}"
+                   href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsedonate" aria-expanded="{{ request()->routeIs('admin.doners*') ? 'true' : 'false' }}"
+                   aria-controls="collapseAbout">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Doners Page
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse {{ request()->routeIs('admin.doners*') ? 'show' : '' }}"
+                     id="collapsedonate" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link {{ request()->routeIs('admin.doners') ? 'active' : '' }}"
+                           href="{{ route('admin.doners') }}">
+                            Doners
+                        </a>
+                        
+                    </nav>
+                </div>
+
+
             </div>
         </div>
 

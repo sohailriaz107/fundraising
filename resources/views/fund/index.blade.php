@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Home Page')
+@section('title', 'Home')
 <!-- END nav -->
 @section('content')
 <div class="block-31" style="position: relative;">
@@ -101,7 +101,7 @@
 
 
         <div class="card fundraise-item">
-          <a href="{{route('docomp',$fund->id)}}"><img class="card-img-top" src="{{ asset($fund->image) }}" alt="Image placeholder"  ></a>
+          <a href="{{route('docomp',$fund->id)}}"><img class="card-img-top" src="{{ asset($fund->image) }}" alt="Image placeholder"></a>
           <div class="card-body">
             <h3 class="card-title"><a href="#">{{$fund->campaign_name}}</a></h3>
             <p class="card-text">{{$fund->description}}</p>
@@ -109,7 +109,10 @@
             <div class="progress custom-progress-success">
               <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <span class="fund-raised d-block">${{$fund->goal_amount}} raised of {{$fund->raised_amount}}</span>
+            <span class="fund-raised d-block">${{$fund->goal_amount}} raised of {{ number_format($fund->donations->sum('amount'), 2) }}</span>
+            <p>Progress:
+              {{ number_format(($fund->donations->sum('amount') / $fund->goal_amount) * 100, 2) }}%
+            </p>
           </div>
         </div>
         @endforeach

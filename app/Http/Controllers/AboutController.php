@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Donations;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -61,5 +62,11 @@ class AboutController extends Controller
         else{
               return redirect()->back()->with('error','Find error');
         }
+    }
+
+    // doners
+    public function Doners(){
+        $doners=Donations::with('campaign')->get();
+        return view('admin.doners',compact('doners'));
     }
 }

@@ -53,7 +53,7 @@
                             <td class="text-center">{{$campaign->campaign_name}}</td>
                             <td class="text-center">{{$campaign->description}}</td>
                             <td class="text-center">{{$campaign->goal_amount}}</td>
-                            <td class="text-center">{{$campaign->raised_amount}}</td>
+                            <td class="text-center">{{number_format($campaign->donations->sum('amount'),2)}}</td>
                             <td class="text-center">{{$campaign->start_date}}</td>
                             <td class="text-center">{{$campaign->end_date}}</td>
                             <td class="text-center">{{$campaign->status}}</td>
