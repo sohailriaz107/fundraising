@@ -4,9 +4,10 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\FundraisingController;
+use App\Http\Controllers\GallaryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PaymentController;
 
 Route::get('/login', [UserController::class, 'showLoginForm'])
     ->middleware('guest')
@@ -23,6 +24,9 @@ Route::post('/register', [UserController::class, 'register'])
     ->middleware('guest');
 
 
+
+Route::get('/payment', [PaymentController::class, 'index']);
+Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
 Route::middleware('auth')->group(function () {
     Route::get('/', [FundraisingController::class, 'home'])->name('home');
     Route::get('/about', [FundraisingController::class, 'about'])->name('about');
@@ -33,7 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/how/works', [FundraisingController::class, 'How_Works'])->name('how-works');
     Route::get('/donate', [FundraisingController::class, 'donate'])->name('donate');
     Route::post('/donations', [FundraisingController::class, 'Donation'])->name('donations');
-    
 });
 
 
@@ -68,7 +71,9 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::post('admin/about/store', [AboutController::class, 'store'])->name('admin.store');
     Route::put('admin/update/{id}', [AboutController::class, 'Update'])->name('admin.update');
     Route::delete('admin/delete/{id}', [AboutController::class, 'destroy'])->name('admin.delete');
-
     // DOners
-        Route::get('admin/doners', [AboutController::class, 'Doners'])->name('admin.doners');
+    Route::get('admin/doners', [AboutController::class, 'Doners'])->name('admin.doners');
+    // galleries
+    Route::get('/gallary', [GallaryController::class, 'index'])->name('admin.gallary');
+    Route::post('/gallary/store', [GallaryController::class, 'store'])->name('galary.store');
 });

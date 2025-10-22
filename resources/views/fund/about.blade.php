@@ -101,17 +101,6 @@
   </div>
 </div>
 
-<div class="site-section">
-  <div class="container">
-    <div class="block-31 mb-5" style="position: relative;">
-      <div class="owl-carousel loop-block-31">
-        <div class="block-30 no-overlay item" style="background-image: url('images/bg_2.jpg');"></div>
-        <div class="block-30 no-overlay item" style="background-image: url('images/bg_1.jpg');"></div>
-        <div class="block-30 no-overlay item" style="background-image: url('images/bg_3.jpg');"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="site-section border-top">
   <div class="container">

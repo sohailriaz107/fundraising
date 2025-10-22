@@ -2,7 +2,39 @@
 @section('title', $funds->campaign_name)
 @section('content')
 <!-- END nav -->
+<script src="https://js.stripe.com/v3/"></script>
 
+<style>
+  body {
+    background: #f5f7fa;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-pay {
+    background: linear-gradient(135deg, #4e73df, #224abe);
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+
+  .btn-pay:hover {
+    background: linear-gradient(135deg, #224abe, #4e73df);
+    color: white;
+  }
+
+  #card-element {
+    padding: 12px;
+    border: 1px solid #d1d3e2;
+    border-radius: 10px;
+    background-color: white;
+  }
+</style>
 <div class="block-31" style="position: relative;">
   <div class="owl-carousel loop-block-31 ">
     <div class="block-30 block-30-sm item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
@@ -51,22 +83,33 @@
       <!-- Donation Form -->
       <div class="col-lg-4">
         <div class="card shadow-sm border-0 rounded-4 p-4">
-          <h3 class="text-center fw-bold text-success mb-4">Make a Donation</h3>
+          <h3 class="text-center fw-bold text-success mb-4">💳 Secure Stripe Payment</h3>
 
-          @if(session('success'))
-          <div class="alert alert-success text-center">
-            {{ session('success') }}
-          </div>
+
+          @if (session('success'))
+          <div class="alert alert-success">{{ session('success') }}</div>
           @endif
 
-          <form action="{{route('donations')}}" method="POST" id="payment-form">
+          @if (session('error'))
+          <div class="alert alert-danger">{{ session('error') }}</div>
+          @endif
+
+
+          <form action="{{ route('donations') }}" method="POST" id="payment-form">
             @csrf
+            <input type="hidden" name="campaign_id" value="{{ $funds->id }}">
+
             <div class="mb-3">
-              <input type="hidden" name="campaign_id" value="{{ $funds->id }}">
-              <label class="form-label">Amount (pkr)</label>
-              <input type="number" name="amount" class="form-control rounded-3" min="1" required>
+              <label for="amount" class="form-label">Amount (PKR)</label>
+              <input type="number" name="amount" class="form-control rounded-3" min="1" placeholder="Enter amount" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100 py-2 rounded-3 mt-3">
+
+            <div class="mb-3">
+              <label class="form-label">Card Details</label>
+              <div id="card-element"></div>
+            </div>
+
+            <button type="submit" class="btn btn-pay w-100 py-2 mt-3">
               <i class="bi bi-heart-fill me-1"></i> Donate Now
             </button>
           </form>
@@ -76,5 +119,26 @@
 
   </div>
 </div>
+ <script>
+  const stripe = Stripe("{{ config('services.stripe.key') }}");
+  const elements = stripe.elements();
+  const card = elements.create('card');
+  card.mount('#card-element');
 
+  const form = document.getElementById('payment-form');
+  form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const {token, error} = await stripe.createToken(card);
+      if (error) {
+          alert(error.message);
+      } else {
+          const hidden = document.createElement('input');
+          hidden.type = 'hidden';
+          hidden.name = 'stripeToken';
+          hidden.value = token.id;
+          form.appendChild(hidden);
+          form.submit();
+      }
+  });
+  </script>
 @endsection

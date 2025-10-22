@@ -6,7 +6,7 @@
                 <!-- Core Section -->
                 <div class="sb-sidenav-menu-heading">Core</div>
                 <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
-                   href="{{ route('dashboard') }}">
+                    href="{{ route('dashboard') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
@@ -14,18 +14,18 @@
                 <!-- Interface Section -->
                 <div class="sb-sidenav-menu-heading">Interface</div>
                 <a class="nav-link collapsed {{ request()->routeIs('nav*') ? 'active' : '' }}"
-                   href="#" data-bs-toggle="collapse"
-                   data-bs-target="#collapseLayouts" aria-expanded="{{ request()->routeIs('nav*') ? 'true' : 'false' }}"
-                   aria-controls="collapseLayouts">
+                    href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapseLayouts" aria-expanded="{{ request()->routeIs('nav*') ? 'true' : 'false' }}"
+                    aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Nav Section
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse {{ request()->routeIs('nav*') ? 'show' : '' }}"
-                     id="collapseLayouts" data-bs-parent="#sidenavAccordion">
+                    id="collapseLayouts" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link {{ request()->routeIs('nav') ? 'active' : '' }}"
-                           href="{{ route('nav') }}">
+                            href="{{ route('nav') }}">
                             Navigations
                         </a>
                     </nav>
@@ -33,65 +33,81 @@
 
                 <!-- Campaign Page Section -->
                 <a class="nav-link collapsed {{ request()->routeIs('campaign*') ? 'active' : '' }}"
-                   href="#" data-bs-toggle="collapse"
-                   data-bs-target="#collapseCampaign" aria-expanded="{{ request()->routeIs('campaign*') ? 'true' : 'false' }}"
-                   aria-controls="collapseCampaign">
+                    href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapseCampaign" aria-expanded="{{ request()->routeIs('campaign*') ? 'true' : 'false' }}"
+                    aria-controls="collapseCampaign">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Campaign Page
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse {{ request()->routeIs('campaign*') ? 'show' : '' }}"
-                     id="collapseCampaign" data-bs-parent="#sidenavAccordion">
+                    id="collapseCampaign" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link {{ request()->routeIs('camp') ? 'active' : '' }}"
-                           href="{{ route('camp') }}">
+                            href="{{ route('camp') }}">
                             All Campaigns
                         </a>
-                        
+
                     </nav>
                 </div>
 
                 <!-- about section -->
-                 <a class="nav-link collapsed {{ request()->routeIs('admin.about*') ? 'active' : '' }}"
-                   href="#" data-bs-toggle="collapse"
-                   data-bs-target="#collapseAbout" aria-expanded="{{ request()->routeIs('campaign*') ? 'true' : 'false' }}"
-                   aria-controls="collapseAbout">
+                <a class="nav-link collapsed {{ request()->routeIs('admin.about*') ? 'active' : '' }}"
+                    href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapseAbout" aria-expanded="{{ request()->routeIs('campaign*') ? 'true' : 'false' }}"
+                    aria-controls="collapseAbout">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     About Page
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse {{ request()->routeIs('campaign*') ? 'show' : '' }}"
-                     id="collapseAbout" data-bs-parent="#sidenavAccordion">
+                    id="collapseAbout" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link {{ request()->routeIs('admin.about') ? 'active' : '' }}"
-                           href="{{ route('admin.about') }}">
+                            href="{{ route('admin.about') }}">
                             about
                         </a>
-                        
+
                     </nav>
                 </div>
 
                 <!-- doners list -->
-                   <a class="nav-link collapsed {{ request()->routeIs('admin.doners*') ? 'active' : '' }}"
-                   href="#" data-bs-toggle="collapse"
-                   data-bs-target="#collapsedonate" aria-expanded="{{ request()->routeIs('admin.doners*') ? 'true' : 'false' }}"
-                   aria-controls="collapseAbout">
+                <a class="nav-link collapsed {{ request()->routeIs('admin.doners*') ? 'active' : '' }}"
+                    href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapsedonate" aria-expanded="{{ request()->routeIs('admin.doners*') ? 'true' : 'false' }}"
+                    aria-controls="collapseAbout">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Doners Page
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse {{ request()->routeIs('admin.doners*') ? 'show' : '' }}"
-                     id="collapsedonate" data-bs-parent="#sidenavAccordion">
+                    id="collapsedonate" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link {{ request()->routeIs('admin.doners') ? 'active' : '' }}"
-                           href="{{ route('admin.doners') }}">
+                            href="{{ route('admin.doners') }}">
                             Doners
                         </a>
-                        
                     </nav>
                 </div>
 
-
+                <!-- gallary list -->
+                 <a class="nav-link collapsed {{ request()->routeIs('admin.gallary*') ? 'active' : '' }}"
+                    href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapsegalry" aria-expanded="{{ request()->routeIs('admin.gallary*') ? 'true' : 'false' }}"
+                    aria-controls="collapseAbout">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Gallary Page
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse {{ request()->routeIs('admin.gallary*') ? 'show' : '' }}"
+                    id="collapsegalry" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link {{ request()->routeIs('admin.gallary') ? 'active' : '' }}"
+                            href="{{ route('admin.gallary') }}">
+                            Gallary
+                        </a>
+                    </nav>
+                </div>
             </div>
         </div>
 
