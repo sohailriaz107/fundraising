@@ -69,4 +69,14 @@ class AboutController extends Controller
         $doners=Donations::with('campaign')->get();
         return view('admin.doners',compact('doners'));
     }
+    public function Deleted(Request $request,$id){
+        $doner=Donations::find($id);
+        if($doner){
+            $doner->delete();
+            return redirect()->back()->with('success','doners deleted');
+        }
+        else{
+            return redirect()->back()->with('error','error to deleted');
+        }
+    }
 }

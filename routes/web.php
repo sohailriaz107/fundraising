@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\GallaryController;
 use App\Http\Controllers\UserController;
@@ -33,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/blog', [FundraisingController::class, 'blog'])->name('blog');
     Route::get('/docampaigns/{id}', [FundraisingController::class, 'DoCompaigns'])->name('docomp');
     Route::get('/contact', [FundraisingController::class, 'contact'])->name('contact');
-    Route::get('/gallary', [FundraisingController::class, 'gallary'])->name('gallary');
+    Route::get('/gallary1', [FundraisingController::class, 'gallary'])->name('gallary');
     Route::get('/how/works', [FundraisingController::class, 'How_Works'])->name('how-works');
     Route::get('/donate', [FundraisingController::class, 'donate'])->name('donate');
     Route::post('/donations', [FundraisingController::class, 'Donation'])->name('donations');
@@ -73,7 +74,16 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::delete('admin/delete/{id}', [AboutController::class, 'destroy'])->name('admin.delete');
     // DOners
     Route::get('admin/doners', [AboutController::class, 'Doners'])->name('admin.doners');
+    Route::delete('doner/delete/{id}', [AboutController::class, 'Deleted'])->name('doners.destroy');
     // galleries
-    Route::get('/gallary', [GallaryController::class, 'index'])->name('admin.gallary');
+    Route::get('admin/gallary', [GallaryController::class, 'index'])->name('admin.gallary');
     Route::post('/gallary/store', [GallaryController::class, 'store'])->name('galary.store');
+    Route::put('/gallery/update/{id}', [GallaryController::class, 'update'])->name('gallery.update');
+    Route::delete('/gallery/destroy/{id}', [GallaryController::class, 'destroy1'])->name('gallary.destroy');
+});
+
+
+Route::post('/chat', [ChatController::class, 'chat']);
+Route::get('/chat-ui', function () {
+    return view('chat');
 });

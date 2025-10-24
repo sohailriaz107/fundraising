@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Campaign;
 use App\Models\Donations;
+use App\Models\Gallary;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Charge;
@@ -42,7 +43,8 @@ class FundraisingController extends Controller
   }
   public function gallary()
   {
-    return view('fund.gallery');
+    $gallary=Gallary::all();
+    return view('fund.gallery',compact('gallary'));
   }
   public function How_Works()
   {

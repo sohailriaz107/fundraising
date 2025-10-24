@@ -81,10 +81,10 @@
                                             </button>
                                         </li>
                                         <li>
-                                            <form action="{{ route('campaign.destroy', $campaign->id) }}" method="POST" onsubmit="return alert('Are you sure?');">
+                                            <form action="{{ route('campaign.destroy', $campaign->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item text-danger">Delete</button>
+                                                <button type="submit" class="dropdown-item text-danger" onclick="alert('are you sure to delete??')">Delete</button>
                                             </form>
                                         </li>
                                     </ul>
@@ -135,19 +135,19 @@
                                                 <label for="edate" class="form-label">End Date</label>
                                                 <input type="date" name="edate" class="form-control" id="edate" value="{{$campaign->end_date}}" required>
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="img" class="form-label">Old Image</label>
-                                                <br>
+                                            <div class="mb-3 text-center">
+                                                <label for="img" class="form-label d-block fw-semibold mb-2">Old Image</label>
 
-                                                <img src="{{$campaign->image}}" alt="img" class="rounded-circle text-center" width="100px" height="100px">
-                                                <br>
-                                                <label for="edate" class="form-label">Select New Image</label>
-                                                <input type="file" name="image" class="form-control" id="image">
-
+                                                <img src="{{ asset($campaign->image) }}"
+                                                    alt="Old Image"
+                                                    class="rounded-circle border border-2 shadow-sm mb-3"
+                                                    width="100"
+                                                    height="100">
+                                                <div>
+                                                    <label for="image" class="form-label fw-semibold mb-2">Select New Image</label>
+                                                </div>
+                                                <input type="file" name="image" id="image" class="form-control">
                                             </div>
-
-
-
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                                 <button type="submit" class="btn btn-success">Save</button>

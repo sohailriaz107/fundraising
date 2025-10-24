@@ -40,10 +40,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($gallary as $gal)
                         <tr>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
-                          
+                            <td class="text-center">{{$loop->iteration}}</td>
+                            <td class="text-center">
+                                <img src="{{$gal->image}}" alt="" class="rounded-circle" width="80px" height="80px">
+                            </td>
                             <td class="text-center">
                                 <div class="dropdown">
                                     <img src="{{ asset('assets/images/user-pen.svg') }}"
@@ -60,61 +62,60 @@
                                         <li>
                                             <button type="button" class="dropdown-item text-primary"
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#editModal">
+                                                data-bs-target="#galryModal{{$gal->id}}">
                                                 Edit
                                             </button>
                                         </li>
                                         <li>
-                                            <form action="" method="POST">
+                                            <form action="{{route('gallary.destroy',$gal->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item text-danger">Delete</button>
+                                                <button type="submit" class="dropdown-item text-danger" onclick="alert('are you sure to delete??')">Delete</button>
                                             </form>
                                         </li>
                                     </ul>
                                 </div>
                             </td>
-
-
                         </tr>
+
                         <!-- edit About  -->
-                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="addNavModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="galryModal{{$gal->id}}" tabindex="-1" aria-labelledby="addNavModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content shadow-lg rounded-4">
                                     <div class="modal-header bg-dark text-white">
-                                        <h5 class="modal-title" id="addNavModalLabel">Edit New ABout</h5>
+                                        <h5 class="modal-title" id="addNavModalLabel">Add Image</h5>
                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                                     </div>
-
                                     <div class="modal-body p-4">
-                                        <form action="" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ route('gallery.update',$gal->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
-                                            <div class="mb-3">
-                                                <label for="title" class="form-label">Title Name</label>
-                                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter Campaign name" value="" required>
+                                            <div class="mb-3 text-center">
+                                                <label for="name" class="form-label d-block mb-2 fw-semibold">Old Image</label>
+                                                <img src="{{ asset($gal->image) }}"
+                                                    alt="Old Image"
+                                                    class="rounded-circle border border-2 shadow-sm"
+                                                    width="100"
+                                                    height="100">
                                             </div>
+
                                             <div class="mb-3">
-                                                <label for="history" class="form-label">Campaign Description</label>
-                                                <textarea name="description" id="description" class="form-control" rows="3" placeholder="Enter description"></textarea>
+                                                <label for="name" class="form-label">Select New Image</label>
+                                                <input type="file" name="image" class="form-control" id="name" placeholder="Enter Campaign Title" required>
                                             </div>
+
+
+
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                                 <button type="submit" class="btn btn-success">Save</button>
                                             </div>
                                         </form>
-
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
-                        
-
-
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -140,7 +141,7 @@
                             <label for="name" class="form-label">Image</label>
                             <input type="file" name="image" class="form-control" id="name" placeholder="Enter Campaign Title" required>
                         </div>
-                        
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-success">Save</button>

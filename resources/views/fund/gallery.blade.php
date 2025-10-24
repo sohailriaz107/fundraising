@@ -21,81 +21,17 @@
 <div class="site-section">
   <div class="container">
     <div class="row">
+      @foreach ($gallary as $gal)
       <div class="col-md-4">
         <a href="{{ asset('assets/images/img_1.jpg') }}" class="img-hover" data-fancybox="gallery">
           <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_1.jpg') }}" alt="Image placeholder" class="img-fluid">
+          <img src="{{ $gal->image }}" alt="Image placeholder" class="img-fluid">
         </a>
       </div>
-      <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_2.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_2.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_3.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_3.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_4.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_4.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
+      @endforeach
 
-      <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_1.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_3.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_2.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_3.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
 
-        <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_3.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_3.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_4.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_4.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
-        <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_3.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_3.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_4.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_4.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
 
-        <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_3.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_3.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="{{ asset('assets/images/img_4.jpg') }}" class="img-hover" data-fancybox="gallery">
-          <span class="icon icon-search"></span>
-          <img src="{{ asset('assets/images/img_4.jpg') }}" alt="Image placeholder" class="img-fluid">
-        </a>
-      </div>
     </div>
   </div>
 </div>

@@ -10,13 +10,14 @@ class GallaryController extends Controller
     //
     public function index()
     {
-        return view('admin.gallary');
+        $gallary = Gallary::all();
+        return view('admin.gallary', compact('gallary'));
     }
     public function store(Request $request)
     {
         $request->validate([
 
-            'image'=> 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:2048',
         ]);
 
         $imagePath = null;
@@ -37,5 +38,40 @@ class GallaryController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Gallary Image Uploaded!');
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:2048',
+        ]);
+
+        $gallery = Gallary::findOrFail($id); // Find specific record
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($gallery->image && file_exists(public_path($gallery->image))) {
+                unlink(public_path($gallery->image));
+            }
+
+            // Upload new image
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('gallary'), $filename);
+            $gallery->image = 'gallary/' . $filename;
+        }
+
+        $gallery->save(); // Update record
+
+        return redirect()->back()->with('success', 'Image updated successfully!');
+    }
+    public function destroy(Request $request,$id){
+        $img=Gallary::find($id);
+        if($img){
+            $img->delete();
+         return redirect()->back()->with('success',"Image deleted successfully");
+        }
+        else{
+         return redirect()->back()->with('error',"Error to delete image");
+        }
     }
 }
