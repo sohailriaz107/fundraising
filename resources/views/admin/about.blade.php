@@ -136,7 +136,7 @@
                 </div>
 
                 <div class="modal-body p-4">
-                    <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.store')}}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Title Name</label>

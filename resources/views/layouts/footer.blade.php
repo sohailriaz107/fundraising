@@ -12,7 +12,9 @@
           <h3 class="heading-section">Recent Blog</h3>
           <div class="block-21 d-flex mb-4">
             <figure class="mr-3">
-              <img src="images/img_1.jpg" alt="" class="img-fluid">
+              <img src="{{ asset('assets/images/img_1.jpg') }}"  alt="" class="img-fluid">
+
+             
             </figure>
             <div class="text">
               <h3 class="heading"><a href="#">Water Is Life. Clean Water In Urban Area</a></h3>
@@ -26,7 +28,9 @@
 
           <div class="block-21 d-flex mb-4">
             <figure class="mr-3">
-              <img src="images/img_2.jpg" alt="" class="img-fluid">
+             
+              <img src="{{ asset('assets/images/img_2.jpg') }}"  alt="" class="img-fluid">
+
             </figure>
             <div class="text">
               <h3 class="heading"><a href="#">Life Is Short So Be Kind</a></h3>
@@ -40,7 +44,9 @@
 
           <div class="block-21 d-flex mb-4">
             <figure class="mr-3">
-              <img src="images/img_4.jpg" alt="" class="img-fluid">
+             
+              <img src="{{ asset('assets/images/img_4.jpg') }}"  alt="" class="img-fluid">
+
             </figure>
             <div class="text">
               <h3 class="heading"><a href="#">Unfortunate Children Need Your Love</a></h3>

@@ -21,7 +21,7 @@ class AboutController extends Controller
             'history' => 'required|string|max:255'
 
         ]);
-        //   dd($request->all());
+        //   
         $about = About::create([
             'title' => $request->title,
             'history' => $request->history,

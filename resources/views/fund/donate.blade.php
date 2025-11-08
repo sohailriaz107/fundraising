@@ -49,13 +49,14 @@
   </div>
 </div> <!-- .section -->
 
-<div class="featured-section overlay-color-2" style="background-image: url('images/bg_2.jpg');">
+<div class="featured-section overlay-color-2" style="background-image: url('{{ asset('assets/images/bg_2.jpg') }}');"
+>
 
   <div class="container">
     <div class="row">
 
       <div class="col-md-6 mb-5 mb-md-0">
-        <img src="images/bg_2.jpg" alt="Image placeholder" class="img-fluid">
+        <img src="{{ asset('assets/images/bg_2.jpg') }}" alt="Image placeholder" class="img-fluid">
       </div>
 
       <div class="col-md-6 pl-md-5">

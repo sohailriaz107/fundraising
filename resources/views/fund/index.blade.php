@@ -8,8 +8,8 @@
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-7">
-            <h2 class="heading mb-5">Free Website Template for Charity Websites.</h2>
-            <p style="display: inline-block;"><a href="https://vimeo.com/channels/staffpicks/93951774" data-fancybox class="ftco-play-video d-flex"><span class="play-icon-wrap align-self-center mr-4"><span class="ion-ios-play"></span></span> <span class="align-self-center">Watch Video</span></a></p>
+            <h2 class="heading mb-5">Be Hope for Others</h2>
+         
           </div>
         </div>
       </div>
@@ -21,14 +21,6 @@
 <div class="site-section section-counter">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 pr-5">
-        <div class="block-48">
-          <span class="block-48-text-1">Served Over</span>
-          <div class="block-48-counter ftco-number" data-number="1321901">0</div>
-          <span class="block-48-text-1 mb-4 d-block">Children in 150 Countries</span>
-          <p class="mb-0"><a href="#" class="btn btn-white px-3 py-2">View Our Program</a></p>
-        </div>
-      </div>
       <div class="col-md-6 welcome-text">
         <h2 class="display-4 mb-3">Who Are We?</h2>
         <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
@@ -42,7 +34,6 @@
 <div class="site-section border-top">
   <div class="container">
     <div class="row">
-
       <div class="col-md-4">
         <div class="media block-6">
           <div class="icon"><span class="ion-ios-bulb"></span></div>
@@ -132,7 +123,7 @@
     <div class="row">
 
       <div class="col-md-6">
-        <img src="{{ asset('assets/images/bg_3.jpg') }}" alt="Image placeholder" class="img-fluid">
+        <img src="{{ asset('assets/images/bg_2.jpg') }}" alt="Image placeholder" class="img-fluid">
       </div>
 
       <div class="col-md-6 pl-md-5">
@@ -149,51 +140,7 @@
 
 </div> <!-- .featured-donate -->
 
-<div class="site-section bg-light">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-md-12">
-        <h2>Latest News</h2>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-        <div class="post-entry">
-          <a href="#" class="mb-3 img-wrap">
-            <img src="{{ asset('assets/images/img_4.jpg') }}" alt="Image placeholder" class="img-fluid">
-          </a>
-          <h3><a href="#">Be A Volunteer Today</a></h3>
-          <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-          <p><a href="#" class="link-underline">Read More</a></p>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-        <div class="post-entry">
-          <a href="#" class="mb-3 img-wrap">
-            <img src="{{ asset('assets/images/img_5.jpg') }}" alt="Image placeholder" class="img-fluid">
-          </a>
-          <h3><a href="#">You May Save The Life of A Child</a></h3>
-          <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-          <p><a href="#" class="link-underline">Read More</a></p>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-        <div class="post-entry">
-          <a href="#" class="mb-3 img-wrap">
-            <img src="{{ asset('assets/images/img_6.jpg') }}" alt="Image placeholder" class="img-fluid">
-          </a>
-          <h3><a href="#">Children That Needs Care</a></h3>
-          <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-          <p><a href="#" class="link-underline">Read More</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> <!-- .section -->
+<!-- .section -->
 
 <div class="featured-section overlay-color-2" style="background-image: url('{{ asset('assets/images/bg_2.jpg') }}');">
 

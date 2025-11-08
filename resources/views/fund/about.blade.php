@@ -44,7 +44,7 @@
         <div class="block-38 text-center">
           <div class="block-38-img">
             <div class="block-38-header">
-              <img src="images/person_1.jpg" alt="Image placeholder">
+              <img src="{{ asset('assets/images/person_1.jpg') }}" alt="Image placeholder">
               <h3 class="block-38-heading">Greeg Graham</h3>
               <p class="block-38-subheading">CEO</p>
             </div>
@@ -58,7 +58,7 @@
         <div class="block-38 text-center">
           <div class="block-38-img">
             <div class="block-38-header">
-              <img src="images/person_2.jpg" alt="Image placeholder">
+              <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image placeholder">
               <h3 class="block-38-heading">Jennifer Greive</h3>
               <p class="block-38-subheading">President</p>
             </div>
@@ -72,7 +72,7 @@
         <div class="block-38 text-center">
           <div class="block-38-img">
             <div class="block-38-header">
-              <img src="images/person_3.jpg" alt="Image placeholder">
+              <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image placeholder">
               <h3 class="block-38-heading">Patrick Marx</h3>
               <p class="block-38-subheading">Marketer</p>
             </div>
@@ -86,7 +86,9 @@
         <div class="block-38 text-center">
           <div class="block-38-img">
             <div class="block-38-header">
-              <img src="images/person_4.jpg" alt="Image placeholder">
+              
+
+              <img src="{{ asset('assets/images/person_4.jpg') }}" alt="Image placeholder">
               <h3 class="block-38-heading">Mike Coolbert</h3>
               <p class="block-38-subheading">Partner</p>
             </div>

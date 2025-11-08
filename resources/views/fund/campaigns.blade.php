@@ -37,12 +37,13 @@
 </style>
 <div class="block-31" style="position: relative;">
   <div class="owl-carousel loop-block-31 ">
-    <div class="block-30 block-30-sm item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="block-30 block-30-sm item" style="background-image: url('{{ asset('assets/images/bg_1.jpg') }}');"
+ data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-12">
-            <span class="text-white text-uppercase">July 30, 2018 &mdash; by Admin</span>
-            <h2 class="heading mb-5">Water Is Life. We Successfuly Provide Clean Water in South East Asia</h2>
+            <span class="text-white text-uppercase">July 30, 2025 &mdash; by Admin</span>
+            <h2 class="heading mb-5">{{$funds->campaign_name}}</h2>
           </div>
         </div>
       </div>
