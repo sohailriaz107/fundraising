@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
@@ -41,7 +42,7 @@ class UserController extends Controller
             'email' => 'Invalid email or password.',
         ])->onlyInput('email');
     }
-    
+
 
     // Logout function
     public function logout(Request $request)
@@ -78,5 +79,61 @@ class UserController extends Controller
     public function showRegisterForm()
     {
         return view('register');
+    }
+
+    public function Profile()
+    {
+
+        $user = Auth::user();
+        $user->load('donations');
+        return view('fund.profile', compact('user'));
+    }
+    public function Update(Request $request)
+    {
+        $user = Auth::user();
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+        ]);
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($user->image && file_exists(public_path($user->image))) {
+                unlink(public_path($user->image));
+            }
+
+            // Upload new image
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('upload/users'), $imageName);
+            $user->image = 'upload/users/' . $imageName;
+        }
+        $user->name = $request->name;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+
+        $user->save();
+        return back()->with('success', 'Profile updated successfully!');
+    }
+    public function updatePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        // Validation
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        // Check current password
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Current password is incorrect']);
+        }
+
+        // Update password
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return back()->with('success', 'Password updated successfully!');
     }
 }

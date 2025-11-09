@@ -15,7 +15,7 @@ Route::get('/login', [UserController::class, 'showLoginForm'])
     ->name('login');
 
 Route::post('/login', [UserController::class, 'login'])->middleware('guest');
-Route::post('/logout', [UserController::class, 'logout'])->middleware('auth')->name('logout');
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth')->name('user.logout');
 
 // 🔹 Register Routes
 Route::get('/register', [UserController::class, 'showRegisterForm'])
@@ -23,8 +23,6 @@ Route::get('/register', [UserController::class, 'showRegisterForm'])
     ->name('register');
 Route::post('/register', [UserController::class, 'register'])
     ->middleware('guest');
-
-
 
 Route::get('/payment', [PaymentController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
@@ -38,6 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/how/works', [FundraisingController::class, 'How_Works'])->name('how-works');
     Route::get('/donate', [FundraisingController::class, 'donate'])->name('donate');
     Route::post('/donations', [FundraisingController::class, 'Donation'])->name('donations');
+    Route::get('/profile', [UserController::class, 'Profile'])->name('profile');
+    Route::put('/profile_setting', [UserController::class, 'Update'])->name('profile.update');
+    Route::put('/update_password', [UserController::class, 'UpdatePassword'])->name('password.update');
+   
 });
 
 

@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700" rel="stylesheet">
-
     <link rel="stylesheet" href="{{ asset('assets/css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
@@ -22,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fancybox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+   <link rel="icon" href="{{ asset('assets/images/fav.png') }}" type="image/png">
 </head>
 
 <body class="sb-nav-fixed">
