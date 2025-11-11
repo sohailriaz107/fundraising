@@ -66,7 +66,7 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::get('/campaign', [CampaignController::class, 'index'])->name('camp');
     Route::post('/store', [CampaignController::class, 'store'])->name('campaign.store');
     Route::put('/campaign/update/{id}', [CampaignController::class, 'Update'])->name('campaign.update');
-    Route::put('/campaign/delete/{id}', [CampaignController::class, 'Destroy'])->name('campaign.destroy');
+    Route::delete('/campaign/delete/{id}', [CampaignController::class, 'Destroy'])->name('campaign.destroy');
 
 
     // about

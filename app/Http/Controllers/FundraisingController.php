@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Charge;
 use Exception;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class FundraisingController extends Controller
@@ -17,8 +18,8 @@ class FundraisingController extends Controller
   //
   public function home()
   {
-    $funds = Campaign::with('donations')->get();
-
+    $funds = Campaign::with('donations')->where('end_date','>', Carbon::today())
+    ->whereColumn('raised_amount','<','goal_amount') ->get();
     return view('fund.index', compact('funds'));
   }
   public function about()

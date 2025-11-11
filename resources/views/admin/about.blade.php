@@ -70,7 +70,7 @@
                                             <form action="{{route('admin.delete',$abt->id)}}" method="POST" onsubmit="return alert('Are you sure?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item text-danger">Delete</button>
+                                                <button type="submit" onclick="alert('are you sure to delete??')" class="dropdown-item text-danger">Delete</button>
                                             </form>
                                         </li>
                                     </ul>

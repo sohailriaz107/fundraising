@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin;
+use App\Models\Campaign;
+use App\Models\Donations;
 use Illuminate\Http\Request;
 use App\Models\Navigation;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -64,7 +67,12 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $doners=Donations::count();
+        $campaigns=Campaign::count();
+        $completed_campaigns=Campaign::where('status','completed')->count();
+        $pending_campaigns=Campaign::where('status','pending')->count();
+        $users=User::count();
+        return view('admin.dashboard',compact('doners','campaigns','completed_campaigns','pending_campaigns','users'));
     }
     public function navigation()
     {

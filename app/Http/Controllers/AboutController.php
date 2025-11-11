@@ -18,7 +18,7 @@ class AboutController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'history' => 'required|string|max:255'
+            'history' => 'required'
 
         ]);
         //   
@@ -37,7 +37,7 @@ class AboutController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'history' => 'required|string|max:255'
+            'history' => 'required'
 
         ]);
           dd($request->all());
