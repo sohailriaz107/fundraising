@@ -25,7 +25,7 @@
         <h2 class="display-4 mb-3">Who Are We?</h2>
         <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
         <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. </p>
-        <p class="mb-0"><a href="#" class="btn btn-primary px-3 py-2">Learn More</a></p>
+        <p class="mb-0"><a href="{{route('about')}}" class="btn btn-primary px-3 py-2">Learn More</a></p>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
           <div class="media-body">
             <h3 class="heading">Our Mission</h3>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p><a href="#" class="link-underline">Learn More</a></p>
+            
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <div class="media-body">
             <h3 class="heading">Make Donations</h3>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p><a href="#" class="link-underline">Learn More</a></p>
+            
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
           <div class="media-body">
             <h3 class="heading">We Need Volunteers</h3>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p><a href="#" class="link-underline">Learn More</a></p>
+     
           </div>
         </div>
       </div>

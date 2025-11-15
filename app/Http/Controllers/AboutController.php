@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Donations;
+use App\Models\Teams;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -12,6 +13,7 @@ class AboutController extends Controller
     public function about()
     {
         $about = About::all();
+        
         return view('admin.about', compact('about'));
     }
     public function store(Request $request)

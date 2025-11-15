@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Campaign;
 use App\Models\Donations;
 use App\Models\Gallary;
+use App\Models\Teams;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Charge;
@@ -25,7 +26,8 @@ class FundraisingController extends Controller
   public function about()
   {
     $about = About::all();
-    return view('fund.about', compact('about'));
+    $teams=Teams::all();
+    return view('fund.about', compact('about','teams'));
   }
   public function blog()
   {

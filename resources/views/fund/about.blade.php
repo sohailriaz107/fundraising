@@ -2,6 +2,29 @@
 @section('title', 'About')
 @section('content')
 
+<style>
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 15px;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.card-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.card-text {
+    font-size: 0.9rem;
+}
+</style>
 <div class="block-31" style="position: relative;">
   <div class="owl-carousel loop-block-31 ">
     <div class="block-30 block-30-sm item" style="background-image: url('{{ asset('assets/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
@@ -40,64 +63,22 @@
       <div class="col-md-12 mb-5 text-center mt-5">
         <h2>Leadership</h2>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="block-38 text-center">
-          <div class="block-38-img">
-            <div class="block-38-header">
-              <img src="{{ asset('assets/images/person_1.jpg') }}" alt="Image placeholder">
-              <h3 class="block-38-heading">Greeg Graham</h3>
-              <p class="block-38-subheading">CEO</p>
+         @foreach ($teams as $team)
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+            <img src="{{ asset('upload/teams/' . $team->image) }}" class="card-img-top" alt="{{ $team->name }}">
+            <div class="card-body text-center">
+                <h5 class="card-title mb-1">{{$team->name}}</h5>
+                <p class="text-primary mb-3">{{$team->role}}</p>
+                <p class="card-text text-muted">{{$team->description}}</p>
             </div>
-            <div class="block-38-body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
+            <div class="card-footer bg-white border-0 text-center">
+                <a href="#" class="btn btn-outline-primary btn-sm">Contact</a>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="block-38 text-center">
-          <div class="block-38-img">
-            <div class="block-38-header">
-              <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image placeholder">
-              <h3 class="block-38-heading">Jennifer Greive</h3>
-              <p class="block-38-subheading">President</p>
-            </div>
-            <div class="block-38-body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="block-38 text-center">
-          <div class="block-38-img">
-            <div class="block-38-header">
-              <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image placeholder">
-              <h3 class="block-38-heading">Patrick Marx</h3>
-              <p class="block-38-subheading">Marketer</p>
-            </div>
-            <div class="block-38-body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="block-38 text-center">
-          <div class="block-38-img">
-            <div class="block-38-header">
-              
-
-              <img src="{{ asset('assets/images/person_4.jpg') }}" alt="Image placeholder">
-              <h3 class="block-38-heading">Mike Coolbert</h3>
-              <p class="block-38-subheading">Partner</p>
-            </div>
-            <div class="block-38-body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+    @endforeach
+    
     </div>
 
   </div>

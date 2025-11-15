@@ -31,7 +31,7 @@
       @foreach ($doners as $doner )
       <div class="col-md-6 col-lg-3 mb-5">
         <div class="person-donate text-center">
-          <img src="{{ asset('assets/images/person_1.jpg') }}" alt="Image placeholder" class="img-fluid">
+          <img src="{{ asset('/upload/users/' . $doner->image) }}" alt="Image placeholder" class="img-fluid">
           <div class="donate-info">
             <h2>{{$doner->donor_name}}</h2>
             <span class="time d-block mb-3">{{$doner->created_at}}</span>

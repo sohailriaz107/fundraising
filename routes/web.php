@@ -85,9 +85,8 @@ Route::middleware(['admin.auth'])->group(function () {
     // Teams
     Route::get('admin/teams', [TeamsController::class, 'Teams'])->name('admin.teams');
     Route::post('teams/store', [TeamsController::class, 'store'])->name('team.store');
-     Route::put('teams/update/{id}', [TeamsController::class, 'Update'])->name('team.update');
-
-     Route::delete('team/destroy/{id}', [TeamsController::class, 'destroy'])->name('team.destroy');
+    Route::put('teams/update/{id}', [TeamsController::class, 'Update'])->name('team.update');
+    Route::delete('team/destroy/{id}', [TeamsController::class, 'destroy'])->name('team.destroy');
 });
 
 
