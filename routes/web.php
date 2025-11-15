@@ -9,6 +9,7 @@ use App\Http\Controllers\GallaryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TeamsController;
 
 Route::get('/login', [UserController::class, 'showLoginForm'])
     ->middleware('guest')
@@ -39,7 +40,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [UserController::class, 'Profile'])->name('profile');
     Route::put('/profile_setting', [UserController::class, 'Update'])->name('profile.update');
     Route::put('/update_password', [UserController::class, 'UpdatePassword'])->name('password.update');
-   
 });
 
 
@@ -82,6 +82,12 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::post('/gallary/store', [GallaryController::class, 'store'])->name('galary.store');
     Route::put('/gallery/update/{id}', [GallaryController::class, 'update'])->name('gallery.update');
     Route::delete('/gallery/destroy/{id}', [GallaryController::class, 'destroy1'])->name('gallary.destroy');
+    // Teams
+    Route::get('admin/teams', [TeamsController::class, 'Teams'])->name('admin.teams');
+    Route::post('teams/store', [TeamsController::class, 'store'])->name('team.store');
+     Route::put('teams/update/{id}', [TeamsController::class, 'Update'])->name('team.update');
+
+     Route::delete('team/destroy/{id}', [TeamsController::class, 'destroy'])->name('team.destroy');
 });
 
 

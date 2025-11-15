@@ -64,8 +64,10 @@
             <div class="col-md-5">
                 <div class="card p-4">
                     <div class="card-body">
-                        <div class="logo-circle mb-3">
-                            <span>L</span>
+                        <div class="text-center mb-3">
+                           <span>
+                                <img src="{{ asset('assets/images/fav.png') }}" alt="img" width="100px" height="100px">
+                            </span>
                         </div>
                         <h3 class="text-center mb-4">Welcome Back 👋</h3>
 

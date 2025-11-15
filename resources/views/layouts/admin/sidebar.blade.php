@@ -36,7 +36,7 @@
                     href="#" data-bs-toggle="collapse"
                     data-bs-target="#collapseCampaign" aria-expanded="{{ request()->routeIs('campaign*') ? 'true' : 'false' }}"
                     aria-controls="collapseCampaign">
-                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
                     Campaign Page
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -76,7 +76,7 @@
                     href="#" data-bs-toggle="collapse"
                     data-bs-target="#collapsedonate" aria-expanded="{{ request()->routeIs('admin.doners*') ? 'true' : 'false' }}"
                     aria-controls="collapseAbout">
-                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                     Doners Page
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -91,11 +91,11 @@
                 </div>
 
                 <!-- gallary list -->
-                 <a class="nav-link collapsed {{ request()->routeIs('admin.gallary*') ? 'active' : '' }}"
+                <a class="nav-link collapsed {{ request()->routeIs('admin.gallary*') ? 'active' : '' }}"
                     href="#" data-bs-toggle="collapse"
                     data-bs-target="#collapsegalry" aria-expanded="{{ request()->routeIs('admin.gallary*') ? 'true' : 'false' }}"
                     aria-controls="collapseAbout">
-                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-images"></i></div>
                     Gallary Page
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -105,6 +105,25 @@
                         <a class="nav-link {{ request()->routeIs('admin.gallary') ? 'active' : '' }}"
                             href="{{ route('admin.gallary') }}">
                             Gallary
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- team list -->
+                <a class="nav-link collapsed {{ request()->routeIs('admin.teams*') ? 'active' : '' }}"
+                    href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapseteam" aria-expanded="{{ request()->routeIs('admin.teams*') ? 'true' : 'false' }}"
+                    aria-controls="collapseAbout">
+                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                    Team
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse {{ request()->routeIs('admin.teams*') ? 'show' : '' }}"
+                    id="collapseteam" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link {{ request()->routeIs('admin.teams') ? 'active' : '' }}"
+                            href="{{ route('admin.teams') }}">
+                           Teams
                         </a>
                     </nav>
                 </div>

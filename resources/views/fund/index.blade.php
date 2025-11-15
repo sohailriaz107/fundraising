@@ -9,7 +9,7 @@
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-7">
             <h2 class="heading mb-5">Be Hope for Others</h2>
-         
+
           </div>
         </div>
       </div>
@@ -89,16 +89,21 @@
     <div class="col-md-12 block-11">
       <div class="nonloop-block-11 owl-carousel">
         @foreach ($funds as $fund)
-
-
         <div class="card fundraise-item">
-          <a href="{{route('docomp',$fund->id)}}"><img class="card-img-top" src="{{ asset($fund->image) }}" alt="Image placeholder"></a>
+          <a href="{{route('docomp',$fund->id)}}"><img class="card-img-top" src="{{ asset($fund->image) }}" alt="Image placeholder" width="300px" height="300px"></a>
           <div class="card-body">
             <h3 class="card-title"><a href="#">{{$fund->campaign_name}}</a></h3>
             <p class="card-text">{{$fund->description}}</p>
-            <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
+         
             <div class="progress custom-progress-success">
-              <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar bg-primary"
+                role="progressbar"
+                style="width: {{ number_format(($fund->donations->sum('amount') / $fund->goal_amount) * 100, 2) }}%;"
+                aria-valuenow="{{ number_format(($fund->donations->sum('amount') / $fund->goal_amount) * 100, 2) }}"
+                aria-valuemin="0"
+                aria-valuemax="100">
+              </div>
+
             </div>
             <span class="fund-raised d-block">${{$fund->goal_amount}} raised of {{ number_format($fund->donations->sum('amount'), 2) }}</span>
             <p>Progress:
@@ -142,6 +147,6 @@
 
 <!-- .section -->
 
- <!-- .featured-donate -->
+<!-- .featured-donate -->
 
 @endsection

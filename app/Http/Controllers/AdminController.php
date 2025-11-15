@@ -7,6 +7,7 @@ use App\Models\Campaign;
 use App\Models\Donations;
 use Illuminate\Http\Request;
 use App\Models\Navigation;
+use App\Models\Teams;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -72,7 +73,8 @@ class AdminController extends Controller
         $completed_campaigns=Campaign::where('status','completed')->count();
         $pending_campaigns=Campaign::where('status','pending')->count();
         $users=User::count();
-        return view('admin.dashboard',compact('doners','campaigns','completed_campaigns','pending_campaigns','users'));
+        $members=Teams::count();
+        return view('admin.dashboard',compact('doners','campaigns','completed_campaigns','pending_campaigns','users','members'));
     }
     public function navigation()
     {

@@ -64,8 +64,10 @@
             <div class="col-md-5">
                 <div class="card p-4">
                     <div class="card-body">
-                        <div class="logo-circle mb-3">
-                            <span>R</span>
+                        <div class="text-center" style="background:none">
+                             <span>
+                                <img src="{{ asset('assets/images/fav.png') }}" alt="img" width="100px" height="100px">
+                            </span>
                         </div>
                         <h3 class="text-center mb-4">Create Account ✨</h3>
 
