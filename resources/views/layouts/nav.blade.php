@@ -9,7 +9,7 @@
 
             <ul class="navbar-nav ml-auto">
                 @foreach($navs as $nav)
-                <li class="nav-item {{ request()->is(ltrim($nav->route, '/')) ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is(trim($nav->route, '/')) || request()->is('/') && $nav->route == '/' ? 'active' : '' }}">
                     <a href="{{ url($nav->route) }}" class="nav-link">
                         {{ ucfirst($nav->nav) }}
                     </a>

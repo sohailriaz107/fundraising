@@ -123,7 +123,26 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link {{ request()->routeIs('admin.teams') ? 'active' : '' }}"
                             href="{{ route('admin.teams') }}">
-                           Teams
+                            Teams
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- messages -->
+                   <a class="nav-link collapsed {{ request()->routeIs('admin.message*') ? 'active' : '' }}"
+                    href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapsemsg" aria-expanded="{{ request()->routeIs('admin.message*') ? 'true' : 'false' }}"
+                    aria-controls="collapseAbout">
+                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                    Message
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse {{ request()->routeIs('admin.message*') ? 'show' : '' }}"
+                    id="collapsemsg" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link {{ request()->routeIs('admin.message') ? 'active' : '' }}"
+                            href="{{ route('admin.message') }}">
+                            Messages
                         </a>
                     </nav>
                 </div>

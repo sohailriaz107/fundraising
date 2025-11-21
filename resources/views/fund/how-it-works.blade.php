@@ -12,8 +12,7 @@
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-7">
             <h2 class="heading mb-5">How It Works</h2>
-            <p style="display: inline-block;"><a href=" data-fancybox class="ftco-play-video d-flex"><span class="play-icon-wrap align-self-center mr-4"><span class="ion-ios-play"></span></span> <span class="align-self-center">How It Works</span></a></
-                </div>
+            
           </div>
         </div>
       </div>
@@ -65,8 +64,8 @@
     </div>
   </div>
 
-   <!-- .section -->
+  <!-- .section -->
 
   < <!-- .featured-donate -->
 
-  @endsection
+    @endsection

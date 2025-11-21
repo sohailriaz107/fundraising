@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\GallaryController;
 use App\Http\Controllers\UserController;
@@ -40,6 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [UserController::class, 'Profile'])->name('profile');
     Route::put('/profile_setting', [UserController::class, 'Update'])->name('profile.update');
     Route::put('/update_password', [UserController::class, 'UpdatePassword'])->name('password.update');
+
+    Route::post('/user/message',[ContactController::class,'Contact'])->name('message');
 });
 
 
@@ -87,6 +90,10 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::post('teams/store', [TeamsController::class, 'store'])->name('team.store');
     Route::put('teams/update/{id}', [TeamsController::class, 'Update'])->name('team.update');
     Route::delete('team/destroy/{id}', [TeamsController::class, 'destroy'])->name('team.destroy');
+ 
+    // contact
+    Route::get('user/message',[ContactController::class,'UserMessage'])->name('admin.message');
+      Route::get('message/destroy/{id}',[ContactController::class,'Destroy'])->name('message.delete');
 });
 
 
